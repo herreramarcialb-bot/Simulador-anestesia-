@@ -1029,3 +1029,63 @@ h1 > span {
     padding: 24px;
   }
 }
+
+.educational-notice {
+  margin-top: 24px;
+  padding: 15px 20px;
+  border: 1px solid #dccca2;
+  border-left: 4px solid #af8a3b;
+  background: #fffaf0;
+  border-radius: 6px;
+  color: #735a28;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+.model-credits {
+  margin-top: 15px;
+  color: #7c8d82;
+  font-size: 10px;
+  line-height: 1.9;
+}
+.model-credits a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #39715d;
+}
+.model-credits span {
+  display: block;
+}
+.toggle:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.model-loading {
+  width: 220px;
+  background: #fffef7ef;
+  border: 1px solid #d5ddd2;
+  padding: 16px 20px;
+  border-radius: 7px;
+  font-size: 11px;
+  color: #53705d;
+  box-shadow: 0 6px 24px #2849320d;
+}
+.model-loading b {
+  display: block;
+  margin-top: 7px;
+}
+.canvas-wrap canvas {
+  cursor: grab;
+}
+.canvas-wrap canvas:active {
+  cursor: grabbing;
+}
+
+.canvas-wrap > .model-loading {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}

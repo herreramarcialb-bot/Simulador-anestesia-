@@ -1,0 +1,1060 @@
+{
+  "dataset": "BodyParts3D 3.0 (20110915)",
+  "mirrorCommit": "f0eeb6e843380cfe6b83797cf8c3e1af74de5e61",
+  "license": "CC BY-SA 2.1 Japan",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/",
+  "adaptation": "STL to indexed GLB; area-weighted vertex normals; rigid axis conversion (x,y,z) \u2192 (x,z,-y). No decimation or relative repositioning. Runtime applies one uniform scale and common translation.",
+  "glbSha256": "09af5805ef666e48980a4c7de6fa6acbd035ee7dfaaab680f2b54cb2481d6437",
+  "parts": [
+    {
+      "file": "FMA52734.stl",
+      "group": "skull",
+      "fma": "FMA52734",
+      "name": "frontal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52734.stl",
+      "sha256": "0791c2e2dde886005d3d5997b75a05353d3ae20d908fc74ab820a58520d26f46",
+      "triangles": 33062,
+      "bounds": [
+        [
+          -59.876399993896484,
+          1529.0799560546875,
+          115.28399658203125
+        ],
+        [
+          58.542301177978516,
+          1632.2900390625,
+          182.26600646972656
+        ]
+      ]
+    },
+    {
+      "file": "FMA52735.stl",
+      "group": "skull",
+      "fma": "FMA52735",
+      "name": "occipital bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52735.stl",
+      "sha256": "22467369bae988b5afc2699c631f3ae0d2db2ef65a624ccb5c6a259d767415b5",
+      "triangles": 27812,
+      "bounds": [
+        [
+          -58.6431999206543,
+          1488.489990234375,
+          -2.225019931793213
+        ],
+        [
+          57.31119918823242,
+          1589.6099853515625,
+          110.1989974975586
+        ]
+      ]
+    },
+    {
+      "file": "FMA52736.stl",
+      "group": "skull",
+      "fma": "FMA52736",
+      "name": "sphenoid bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52736.stl",
+      "sha256": "76e95b3525d5e94964f5ed5308e8234f78945b9c2ffdc6065e5d3a6e2dc08777",
+      "triangles": 15322,
+      "bounds": [
+        [
+          -53.292999267578125,
+          1489.489990234375,
+          99.96839904785156
+        ],
+        [
+          51.99829864501953,
+          1555.530029296875,
+          151.8470001220703
+        ]
+      ]
+    },
+    {
+      "file": "FMA52740.stl",
+      "group": "skull",
+      "fma": "FMA52740",
+      "name": "ethmoid",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52740.stl",
+      "sha256": "732b19d2f1784564cdcbe3dd892eebbc1d0274a62491fecb3779186371faaf93",
+      "triangles": 7774,
+      "bounds": [
+        [
+          -20.24839973449707,
+          1506.56005859375,
+          129.66200256347656
+        ],
+        [
+          15.651700019836426,
+          1541.3599853515625,
+          172.2989959716797
+        ]
+      ]
+    },
+    {
+      "file": "FMA9710.stl",
+      "group": "skull",
+      "fma": "FMA9710",
+      "name": "vomer",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA9710.stl",
+      "sha256": "8504c22ef2017bf56768f1127d607ccb0947dab8b2893e546d0ececc76d28d9b",
+      "triangles": 2422,
+      "bounds": [
+        [
+          -6.211999893188477,
+          1494.949951171875,
+          118.1780014038086
+        ],
+        [
+          3.4725399017333984,
+          1518.300048828125,
+          177.3679962158203
+        ]
+      ]
+    },
+    {
+      "file": "FMA52738.stl",
+      "group": "skull",
+      "fma": "FMA52738",
+      "name": "right temporal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52738.stl",
+      "sha256": "c4d134473a62f43ab18efa415f394ff6c01a07ca14664a640a4ba787eaa6cadc",
+      "triangles": 11274,
+      "bounds": [
+        [
+          -70.73750305175781,
+          1486.4599609375,
+          47.782798767089844
+        ],
+        [
+          -11.908599853515625,
+          1558.6600341796875,
+          141.2209930419922
+        ]
+      ]
+    },
+    {
+      "file": "FMA52739.stl",
+      "group": "skull",
+      "fma": "FMA52739",
+      "name": "left temporal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52739.stl",
+      "sha256": "c42357deb26fb0468d7a2f4b471e7e7d8e7363cc5abe7e6d90e982c3d1ae449f",
+      "triangles": 11208,
+      "bounds": [
+        [
+          10.615500450134277,
+          1486.4200439453125,
+          47.804901123046875
+        ],
+        [
+          69.43150329589844,
+          1558.5899658203125,
+          141.06500244140625
+        ]
+      ]
+    },
+    {
+      "file": "FMA52788.stl",
+      "group": "skull",
+      "fma": "FMA52788",
+      "name": "right parietal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52788.stl",
+      "sha256": "b2bb58e09216066e45af9d74894b8974cbe84bc3a0fa4db5b614670272d5c428",
+      "triangles": 29734,
+      "bounds": [
+        [
+          -72.63030242919922,
+          1526.27001953125,
+          0.758965015411377
+        ],
+        [
+          4.820010185241699,
+          1638.219970703125,
+          135.67300415039062
+        ]
+      ]
+    },
+    {
+      "file": "FMA52789.stl",
+      "group": "skull",
+      "fma": "FMA52789",
+      "name": "left parietal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52789.stl",
+      "sha256": "fbff8a906a4a96ff287b842c5a14ebbee2d96c2df6d554608861b011836a1346",
+      "triangles": 30250,
+      "bounds": [
+        [
+          -7.79118013381958,
+          1526.22998046875,
+          0.509967029094696
+        ],
+        [
+          71.35479736328125,
+          1638.2099609375,
+          139.25100708007812
+        ]
+      ]
+    },
+    {
+      "file": "FMA52892.stl",
+      "group": "skull",
+      "fma": "FMA52892",
+      "name": "right zygomatic bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52892.stl",
+      "sha256": "a7af6f93c52cd816c3b5f134811ebe1cba5766e0ab170747cff37c089cbcc001",
+      "triangles": 4612,
+      "bounds": [
+        [
+          -61.061500549316406,
+          1491.27001953125,
+          129.552001953125
+        ],
+        [
+          -31.232500076293945,
+          1544.4100341796875,
+          167.2760009765625
+        ]
+      ]
+    },
+    {
+      "file": "FMA52893.stl",
+      "group": "skull",
+      "fma": "FMA52893",
+      "name": "left zygomatic bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52893.stl",
+      "sha256": "a47bff85f4f2fbde1ed67cdb79688414616f9ca05187425bc2ffa1b841295feb",
+      "triangles": 4560,
+      "bounds": [
+        [
+          29.867599487304688,
+          1491.219970703125,
+          129.52000427246094
+        ],
+        [
+          59.73320007324219,
+          1544.4100341796875,
+          167.28199768066406
+        ]
+      ]
+    },
+    {
+      "file": "FMA53647.stl",
+      "group": "skull",
+      "fma": "FMA53647",
+      "name": "right nasal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA53647.stl",
+      "sha256": "a2c4e73f0346df903e9fcc4c7522c2ce9a82fd65f2f8f2993867812306577303",
+      "triangles": 1024,
+      "bounds": [
+        [
+          -8.742250442504883,
+          1510.6800537109375,
+          174.7010040283203
+        ],
+        [
+          -0.43773001432418823,
+          1541.050048828125,
+          195.0260009765625
+        ]
+      ]
+    },
+    {
+      "file": "FMA53648.stl",
+      "group": "skull",
+      "fma": "FMA53648",
+      "name": "left nasal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA53648.stl",
+      "sha256": "576a778c98145cbe676ca7c97f599430f8f52ed367ba4907d7ab1ebb720bb5ca",
+      "triangles": 1124,
+      "bounds": [
+        [
+          -2.7096099853515625,
+          1511.280029296875,
+          174.4010009765625
+        ],
+        [
+          7.026140213012695,
+          1541.3299560546875,
+          193.6820068359375
+        ]
+      ]
+    },
+    {
+      "file": "FMA53655.stl",
+      "group": "skull",
+      "fma": "FMA53655",
+      "name": "right palatine bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA53655.stl",
+      "sha256": "318b033125aa504ed5583e61c4a6808a7fd998835d2dceef9df17c327726582b",
+      "triangles": 3592,
+      "bounds": [
+        [
+          -26.832799911499023,
+          1481.9200439453125,
+          121.86199951171875
+        ],
+        [
+          -1.207319974899292,
+          1520.7900390625,
+          155.95599365234375
+        ]
+      ]
+    },
+    {
+      "file": "FMA53656.stl",
+      "group": "skull",
+      "fma": "FMA53656",
+      "name": "left palatine bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA53656.stl",
+      "sha256": "1ac7ac814f39eb834d2f175002825085c6b04ecc94751ec247ab7c0161cabe37",
+      "triangles": 3642,
+      "bounds": [
+        [
+          -3.4295499324798584,
+          1481.0999755859375,
+          119.19599914550781
+        ],
+        [
+          22.37150001525879,
+          1519.22998046875,
+          157.9320068359375
+        ]
+      ]
+    },
+    {
+      "file": "FMA53645.stl",
+      "group": "skull",
+      "fma": "FMA53645",
+      "name": "right lacrimal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA53645.stl",
+      "sha256": "19849965bec68b62f2d6c08968ab1d421cddd433f65e7d7e60fedaa4b5cf3466",
+      "triangles": 1114,
+      "bounds": [
+        [
+          -17.185400009155273,
+          1510.1099853515625,
+          157.43099975585938
+        ],
+        [
+          -6.874209880828857,
+          1534.47998046875,
+          171.67999267578125
+        ]
+      ]
+    },
+    {
+      "file": "FMA53646.stl",
+      "group": "skull",
+      "fma": "FMA53646",
+      "name": "left lacrimal bone",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA53646.stl",
+      "sha256": "9c3dc16643b4d11476b055f6785775a725d6e1cdf7497e26d4c634fda446e010",
+      "triangles": 1152,
+      "bounds": [
+        [
+          6.668019771575928,
+          1507.4000244140625,
+          156.91099548339844
+        ],
+        [
+          17.093799591064453,
+          1535.1099853515625,
+          170.5749969482422
+        ]
+      ]
+    },
+    {
+      "file": "FMA54737.stl",
+      "group": "skull",
+      "fma": "FMA54737",
+      "name": "right inferior nasal concha",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA54737.stl",
+      "sha256": "7797ac8cb5c391b89091f704b810ee72d0a2e6f2bc31e088d9d9732c12606acf",
+      "triangles": 1616,
+      "bounds": [
+        [
+          -15.0177001953125,
+          1489.7900390625,
+          137.3780059814453
+        ],
+        [
+          -4.865739822387695,
+          1511.5899658203125,
+          170.9250030517578
+        ]
+      ]
+    },
+    {
+      "file": "FMA54738.stl",
+      "group": "skull",
+      "fma": "FMA54738",
+      "name": "left inferior nasal concha",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA54738.stl",
+      "sha256": "b5433ce863c424e22f113062e23812b81afbbdacac33b5afa73ecab03b6ebeff",
+      "triangles": 1484,
+      "bounds": [
+        [
+          2.5677599906921387,
+          1493.02001953125,
+          139.93800354003906
+        ],
+        [
+          12.59850025177002,
+          1508.1300048828125,
+          173.86300659179688
+        ]
+      ]
+    },
+    {
+      "file": "FMA53649.stl",
+      "group": "maxilla",
+      "fma": "FMA53649",
+      "name": "right maxilla",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA53649.stl",
+      "sha256": "a83de38623317730c5f6c47be8c98b1fd7780b23317d09ca35e1f4f0735dd02e",
+      "triangles": 14148,
+      "bounds": [
+        [
+          -45.17789840698242,
+          1475.5799560546875,
+          136.67599487304688
+        ],
+        [
+          0.021546000614762306,
+          1541.219970703125,
+          188.7689971923828
+        ]
+      ]
+    },
+    {
+      "file": "FMA53650.stl",
+      "group": "maxilla",
+      "fma": "FMA53650",
+      "name": "left maxilla",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA53650.stl",
+      "sha256": "875a8fafabc5df5c11d9cdc6c99ac37326c7f77c5ab5987e8d5b3d00e0d8b907",
+      "triangles": 14506,
+      "bounds": [
+        [
+          -3.3842198848724365,
+          1475.47998046875,
+          134.33900451660156
+        ],
+        [
+          43.312198638916016,
+          1541.239990234375,
+          187.60000610351562
+        ]
+      ]
+    },
+    {
+      "file": "FMA52748.stl",
+      "group": "mandible",
+      "fma": "FMA52748",
+      "name": "mandible",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA52748.stl",
+      "sha256": "e0321ce797a06e8e14fea22261084262cf28099172224e22f44a60d66c42a888",
+      "triangles": 21658,
+      "bounds": [
+        [
+          -50.89649963378906,
+          1435.6500244140625,
+          99.56210327148438
+        ],
+        [
+          49.557498931884766,
+          1515.5,
+          178.92599487304688
+        ]
+      ]
+    },
+    {
+      "file": "FMA55680.stl",
+      "group": "teeth",
+      "fma": "FMA55680",
+      "name": "right upper lateral secondary incisor tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55680.stl",
+      "sha256": "95b2c9a73f4acca66ce3804950e69f5d676d035cd481ff6ac25abfaea324a258",
+      "triangles": 6842,
+      "bounds": [
+        [
+          -16.012500762939453,
+          1464.1600341796875,
+          174.48399353027344
+        ],
+        [
+          -6.9051899909973145,
+          1491.4599609375,
+          185.20599365234375
+        ]
+      ]
+    },
+    {
+      "file": "FMA55681.stl",
+      "group": "teeth",
+      "fma": "FMA55681",
+      "name": "right upper central secondary incisor tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55681.stl",
+      "sha256": "f9b97d30e28e0530ceae510686614fcf518f5442b42816fd48a29af1a1f28ec5",
+      "triangles": 6446,
+      "bounds": [
+        [
+          -9.184289932250977,
+          1464.81005859375,
+          175.9250030517578
+        ],
+        [
+          -0.7905750274658203,
+          1489.75,
+          188.11500549316406
+        ]
+      ]
+    },
+    {
+      "file": "FMA55682.stl",
+      "group": "teeth",
+      "fma": "FMA55682",
+      "name": "left upper central secondary incisor tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55682.stl",
+      "sha256": "a865442be1fbdfd16b4174002c8efc590afb0af0ee4a709da4bd7554ae382eb0",
+      "triangles": 6444,
+      "bounds": [
+        [
+          -0.5170210003852844,
+          1464.800048828125,
+          175.9219970703125
+        ],
+        [
+          7.868919849395752,
+          1489.760009765625,
+          188.11599731445312
+        ]
+      ]
+    },
+    {
+      "file": "FMA55683.stl",
+      "group": "teeth",
+      "fma": "FMA55683",
+      "name": "left upper lateral secondary incisor tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55683.stl",
+      "sha256": "b1bd6e5252cfbb4c5fb2b2bdb4cc019fad4453efc78042cb247364798a7759b5",
+      "triangles": 6896,
+      "bounds": [
+        [
+          5.593289852142334,
+          1464.1500244140625,
+          174.48500061035156
+        ],
+        [
+          14.703300476074219,
+          1491.469970703125,
+          185.5279998779297
+        ]
+      ]
+    },
+    {
+      "file": "FMA55686.stl",
+      "group": "teeth",
+      "fma": "FMA55686",
+      "name": "right lower secondary canine tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55686.stl",
+      "sha256": "a448f3fd190a34efa6e5f77ac67267acc97e9ea1166f2d6b1d769a568cda5d4f",
+      "triangles": 5894,
+      "bounds": [
+        [
+          -16.669700622558594,
+          1441.02001953125,
+          164.41000366210938
+        ],
+        [
+          -8.498310089111328,
+          1466.3699951171875,
+          179.14999389648438
+        ]
+      ]
+    },
+    {
+      "file": "FMA55687.stl",
+      "group": "teeth",
+      "fma": "FMA55687",
+      "name": "left lower secondary canine tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55687.stl",
+      "sha256": "1b056063581a365190b2eaf1991509902fcaef62c3f106b4a4168f0957833cde",
+      "triangles": 5906,
+      "bounds": [
+        [
+          7.189630031585693,
+          1441.02001953125,
+          164.41299438476562
+        ],
+        [
+          15.35830020904541,
+          1466.3699951171875,
+          179.1490020751953
+        ]
+      ]
+    },
+    {
+      "file": "FMA55688.stl",
+      "group": "teeth",
+      "fma": "FMA55688",
+      "name": "right upper second secondary premolar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55688.stl",
+      "sha256": "e46433442c66c783d6d4cbf6b585dc10a6c3ab3abec72624cc2d38f5214360d2",
+      "triangles": 7330,
+      "bounds": [
+        [
+          -27.355499267578125,
+          1468.0899658203125,
+          159.98699951171875
+        ],
+        [
+          -18.545700073242188,
+          1492.5899658203125,
+          167.1790008544922
+        ]
+      ]
+    },
+    {
+      "file": "FMA55689.stl",
+      "group": "teeth",
+      "fma": "FMA55689",
+      "name": "right upper first secondary premolar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55689.stl",
+      "sha256": "6e93a9b2699f7bdf5e16a009ad47cad9906c367d47cd345988f10910689e4e80",
+      "triangles": 8054,
+      "bounds": [
+        [
+          -24.550800323486328,
+          1467.050048828125,
+          165.5679931640625
+        ],
+        [
+          -15.503700256347656,
+          1493.9100341796875,
+          173.18600463867188
+        ]
+      ]
+    },
+    {
+      "file": "FMA55690.stl",
+      "group": "teeth",
+      "fma": "FMA55690",
+      "name": "left upper first secondary premolar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55690.stl",
+      "sha256": "002a49aca9eeb242424fcb904063a78ea49023cf79f638cbc01ddc960113489f",
+      "triangles": 8058,
+      "bounds": [
+        [
+          14.203399658203125,
+          1467.030029296875,
+          165.5709991455078
+        ],
+        [
+          23.240100860595703,
+          1493.9100341796875,
+          173.18299865722656
+        ]
+      ]
+    },
+    {
+      "file": "FMA55691.stl",
+      "group": "teeth",
+      "fma": "FMA55691",
+      "name": "left upper second secondary premolar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55691.stl",
+      "sha256": "1f9bd6cb02d622790b812f676eb7510efbe66fdabf5fd11e3394fef8d030028c",
+      "triangles": 7334,
+      "bounds": [
+        [
+          17.236499786376953,
+          1468.0899658203125,
+          159.98800659179688
+        ],
+        [
+          26.050899505615234,
+          1492.5899658203125,
+          167.1790008544922
+        ]
+      ]
+    },
+    {
+      "file": "FMA55692.stl",
+      "group": "teeth",
+      "fma": "FMA55692",
+      "name": "left lower second secondary premolar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55692.stl",
+      "sha256": "1da52cc756f3bc2c014322baa6ae0e56dd417d296c20691468852bf7825f465a",
+      "triangles": 5620,
+      "bounds": [
+        [
+          14.64229965209961,
+          1446.030029296875,
+          154.0989990234375
+        ],
+        [
+          22.338699340820312,
+          1468.1099853515625,
+          166.69700622558594
+        ]
+      ]
+    },
+    {
+      "file": "FMA55693.stl",
+      "group": "teeth",
+      "fma": "FMA55693",
+      "name": "left lower first secondary premolar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55693.stl",
+      "sha256": "bcb674a84db3d6ea6199d076e19324acf06d6bbbb7e54d61d11cd14b65a86b99",
+      "triangles": 5886,
+      "bounds": [
+        [
+          11.766300201416016,
+          1445.6700439453125,
+          159.8070068359375
+        ],
+        [
+          19.3169002532959,
+          1466.9300537109375,
+          173.1909942626953
+        ]
+      ]
+    },
+    {
+      "file": "FMA55694.stl",
+      "group": "teeth",
+      "fma": "FMA55694",
+      "name": "right lower first secondary premolar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55694.stl",
+      "sha256": "663d2a09fec95607aec307c5c3def9eab2367f5f320fd8837de70260d7ba2007",
+      "triangles": 5900,
+      "bounds": [
+        [
+          -20.628400802612305,
+          1445.6700439453125,
+          159.8070068359375
+        ],
+        [
+          -13.07390022277832,
+          1466.9300537109375,
+          173.1929931640625
+        ]
+      ]
+    },
+    {
+      "file": "FMA55695.stl",
+      "group": "teeth",
+      "fma": "FMA55695",
+      "name": "right lower second secondary premolar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55695.stl",
+      "sha256": "cd45a0e020941d34148c4a42e3acdd1ed4d0be0bb8f12f90ce534d45690cd5d7",
+      "triangles": 5624,
+      "bounds": [
+        [
+          -23.65369987487793,
+          1446.02001953125,
+          154.0970001220703
+        ],
+        [
+          -15.949000358581543,
+          1468.1199951171875,
+          166.69200134277344
+        ]
+      ]
+    },
+    {
+      "file": "FMA55697.stl",
+      "group": "teeth",
+      "fma": "FMA55697",
+      "name": "right upper second secondary molar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55697.stl",
+      "sha256": "1cacc611a0216a07f6dcb3dd777b3ec33c7ed7977329735390d310e9d85988ab",
+      "triangles": 9254,
+      "bounds": [
+        [
+          -29.176000595092773,
+          1473.3900146484375,
+          142.2779998779297
+        ],
+        [
+          -17.908100128173828,
+          1494.81005859375,
+          151.60899353027344
+        ]
+      ]
+    },
+    {
+      "file": "FMA55698.stl",
+      "group": "teeth",
+      "fma": "FMA55698",
+      "name": "right upper first secondary molar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55698.stl",
+      "sha256": "3944de47e0b1ad5cd83e581b04baae16ad60d4c73eccccbe77eda0f93f9aeab2",
+      "triangles": 10786,
+      "bounds": [
+        [
+          -29.485200881958008,
+          1470.0,
+          149.67799377441406
+        ],
+        [
+          -18.487600326538086,
+          1493.199951171875,
+          160.61000061035156
+        ]
+      ]
+    },
+    {
+      "file": "FMA55699.stl",
+      "group": "teeth",
+      "fma": "FMA55699",
+      "name": "left upper first secondary molar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55699.stl",
+      "sha256": "b4fd03826d7204d9786141792c4b29521a66d5c18768c037a57d5cb89bd392b1",
+      "triangles": 10788,
+      "bounds": [
+        [
+          17.17970085144043,
+          1469.989990234375,
+          149.6820068359375
+        ],
+        [
+          28.17919921875,
+          1493.199951171875,
+          160.61000061035156
+        ]
+      ]
+    },
+    {
+      "file": "FMA55700.stl",
+      "group": "teeth",
+      "fma": "FMA55700",
+      "name": "left upper second secondary molar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55700.stl",
+      "sha256": "ad82e6cde92bed7e6a425f5e733a21ad445ec9c3aff038ef91cf091cd1612ad1",
+      "triangles": 9244,
+      "bounds": [
+        [
+          16.59830093383789,
+          1473.3800048828125,
+          142.27200317382812
+        ],
+        [
+          27.866600036621094,
+          1494.81005859375,
+          151.625
+        ]
+      ]
+    },
+    {
+      "file": "FMA55703.stl",
+      "group": "teeth",
+      "fma": "FMA55703",
+      "name": "left lower second secondary molar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55703.stl",
+      "sha256": "54edfccad23111696fdef7439f412f9f1afde598fc79ec849c620e8d25c49675",
+      "triangles": 8088,
+      "bounds": [
+        [
+          18.85580062866211,
+          1457.3599853515625,
+          134.2969970703125
+        ],
+        [
+          30.326499938964844,
+          1475.050048828125,
+          149.9219970703125
+        ]
+      ]
+    },
+    {
+      "file": "FMA55704.stl",
+      "group": "teeth",
+      "fma": "FMA55704",
+      "name": "left lower first secondary molar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55704.stl",
+      "sha256": "a6b2eba1ecfc739634ea19e82210d584ddc8634ac1fe0fb02380f37a5e907d8c",
+      "triangles": 8810,
+      "bounds": [
+        [
+          15.427399635314941,
+          1452.2900390625,
+          146.21099853515625
+        ],
+        [
+          27.11389923095703,
+          1470.9599609375,
+          160.49200439453125
+        ]
+      ]
+    },
+    {
+      "file": "FMA55705.stl",
+      "group": "teeth",
+      "fma": "FMA55705",
+      "name": "right lower first secondary molar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55705.stl",
+      "sha256": "a6692865e4fc253886dd802a6d2b42875025e413341a800a5c89627ee2759863",
+      "triangles": 8818,
+      "bounds": [
+        [
+          -28.426300048828125,
+          1452.280029296875,
+          146.21299743652344
+        ],
+        [
+          -16.74020004272461,
+          1470.9599609375,
+          160.49400329589844
+        ]
+      ]
+    },
+    {
+      "file": "FMA55706.stl",
+      "group": "teeth",
+      "fma": "FMA55706",
+      "name": "right lower second secondary molar tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55706.stl",
+      "sha256": "d19d10f6b9ac68e04e49dca66f46f4e1fd536cd69fd26dfed04816929bf46c08",
+      "triangles": 8102,
+      "bounds": [
+        [
+          -31.637100219726562,
+          1457.3499755859375,
+          134.29400634765625
+        ],
+        [
+          -20.163799285888672,
+          1475.050048828125,
+          149.92599487304688
+        ]
+      ]
+    },
+    {
+      "file": "FMA55798.stl",
+      "group": "teeth",
+      "fma": "FMA55798",
+      "name": "right upper secondary canine tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55798.stl",
+      "sha256": "ed6746c668157d2fa9074ed3a00068a3a1018fc683aab5dc189557ebccfc81f7",
+      "triangles": 6966,
+      "bounds": [
+        [
+          -21.534000396728516,
+          1465.530029296875,
+          172.29299926757812
+        ],
+        [
+          -12.757499694824219,
+          1495.1600341796875,
+          181.11000061035156
+        ]
+      ]
+    },
+    {
+      "file": "FMA55799.stl",
+      "group": "teeth",
+      "fma": "FMA55799",
+      "name": "left upper secondary canine tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA55799.stl",
+      "sha256": "4e419b98ebbca1d0f77317f4b9ae2d987bd98608f09dbaebec1ebcf9d40470e2",
+      "triangles": 6966,
+      "bounds": [
+        [
+          11.445199966430664,
+          1465.530029296875,
+          172.2899932861328
+        ],
+        [
+          20.221399307250977,
+          1495.1600341796875,
+          181.11300659179688
+        ]
+      ]
+    },
+    {
+      "file": "FMA57140.stl",
+      "group": "teeth",
+      "fma": "FMA57140",
+      "name": "right lower lateral secondary incisor tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA57140.stl",
+      "sha256": "e4c60decce8ca5a3a9e335853ce215267ca72c232f8475ce4d763ea49be91a8d",
+      "triangles": 4790,
+      "bounds": [
+        [
+          -12.033499717712402,
+          1442.1800537109375,
+          166.97500610351562
+        ],
+        [
+          -4.583920001983643,
+          1465.9300537109375,
+          182.89599609375
+        ]
+      ]
+    },
+    {
+      "file": "FMA57141.stl",
+      "group": "teeth",
+      "fma": "FMA57141",
+      "name": "left lower lateral secondary incisor tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA57141.stl",
+      "sha256": "282dfaa6527effdc3207752db77770fe83289f5bca05a6fc2d53f725e652f8a0",
+      "triangles": 4804,
+      "bounds": [
+        [
+          3.275820016860962,
+          1442.18994140625,
+          166.97999572753906
+        ],
+        [
+          10.722100257873535,
+          1465.9300537109375,
+          182.89300537109375
+        ]
+      ]
+    },
+    {
+      "file": "FMA57142.stl",
+      "group": "teeth",
+      "fma": "FMA57142",
+      "name": "right lower central secondary incisor tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA57142.stl",
+      "sha256": "cec1f659f43089d3b89e17c435364b5441e68e13fbea84203063873bbfe71fc6",
+      "triangles": 4600,
+      "bounds": [
+        [
+          -6.3945698738098145,
+          1441.9100341796875,
+          166.3000030517578
+        ],
+        [
+          -0.7890160083770752,
+          1465.97998046875,
+          183.531005859375
+        ]
+      ]
+    },
+    {
+      "file": "FMA57143.stl",
+      "group": "teeth",
+      "fma": "FMA57143",
+      "name": "left lower central secondary incisor tooth",
+      "sourceUrl": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/f0eeb6e843380cfe6b83797cf8c3e1af74de5e61/assets/BodyParts3D_data/stl/FMA57143.stl",
+      "sha256": "a1e7443d8e9179938ee942ddc619b2587c7b8e77199430112bf726a62b84464a",
+      "triangles": 4596,
+      "bounds": [
+        [
+          -0.5209299921989441,
+          1441.9100341796875,
+          166.3090057373047
+        ],
+        [
+          5.088160037994385,
+          1465.969970703125,
+          183.52999877929688
+        ]
+      ]
+    }
+  ]
+}

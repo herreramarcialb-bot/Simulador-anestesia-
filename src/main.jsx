@@ -20,9 +20,17 @@ import {
   Syringe,
   X,
 } from "lucide-react";
-import { Scene } from "./Anatomy";
+import { Scene, ModelLoadingStatus } from "./Anatomy";
 import "./styles.css";
 const structures = {
+  skull: {
+    name: "Cráneo",
+    color: "#c7b69c",
+    subtitle: "BodyParts3D · 19 huesos craneofaciales",
+    text: "Mallas anatómicas de la bóveda craneal, base del cráneo y esqueleto facial. Incluyen frontal, parietales, temporales, occipital, esfenoides, etmoides y huesos faciales.",
+    detail:
+      "Referencia masculina adulta de BodyParts3D 3.0, DBCLS. Se conservan las relaciones espaciales originales. No representa todas las variaciones humanas ni está validada para planificar procedimientos.",
+  },
   mandible: {
     name: "Mandíbula",
     color: "#c7b69c",
@@ -42,24 +50,24 @@ const structures = {
   teeth: {
     name: "Dientes",
     color: "#e9e5d6",
-    subtitle: "Dentición permanente · Esquema de 28 piezas",
-    text: "Las coronas y raíces se representan de forma simplificada para orientar la exploración espacial de las arcadas.",
+    subtitle: "BodyParts3D · 28 dientes permanentes",
+    text: "Mallas anatómicas individuales de incisivos, caninos, premolares y molares, conservadas en su posición original en el atlas.",
     detail:
-      "La morfología, el número de raíces y sus relaciones nerviosas no están reproducidos con precisión clínica.",
+      "El conjunto incluye 28 piezas permanentes; no incluye terceros molares. Es una referencia anatómica, no una reproducción de la dentición de cada paciente.",
   },
   nerve: {
     name: "Nervio alveolar inferior",
     color: "#e7ad40",
-    subtitle: "Rama sensitiva · Nervio mandibular (V3)",
+    subtitle: "Información anatómica · Sin malla nerviosa disponible",
     text: "Rama del nervio mandibular que entra por el foramen mandibular y recorre el conducto mandibular. Proporciona sensibilidad a los dientes inferiores.",
     detail:
-      "Su rama terminal mentoniana aporta sensibilidad al labio inferior y al mentón. La trayectoria amarilla es orientativa y no representa variaciones individuales.",
+      "Visualización no disponible: el conjunto BodyParts3D 3.0 incorporado no contiene un trayecto alveolar inferior verificable. Se retiró el recorrido esquemático anterior; no se dibujan nervios inventados. La información textual es general y no implica que exista una malla nerviosa en esta escena.",
   },
   syringe: {
     name: "Jeringa odontológica",
     color: "#88aab0",
     subtitle: "Instrumental · Representación virtual",
-    text: "Modelo simplificado de una jeringa de tipo carpule con cuerpo, émbolo, anillos de apoyo y aguja.",
+    text: "Representación virtual de una jeringa tipo carpule: cartucho translúcido, bastidor metálico, émbolo y aguja fina. Proporciones ilustrativas, no calibradas.",
     detail:
       "Los controles permiten explorar su posición y orientación. No se simulan penetración, aspiración, dosis ni interacción con tejidos.",
   },
@@ -67,13 +75,13 @@ const structures = {
 const lessons = [
   {
     title: "Reconoce la anatomía",
-    text: "El nervio alveolar inferior es una rama de V3. Identifica la rama mandibular y el trayecto esquemático amarillo antes de explorar su relación espacial.",
-    tip: "Selecciona el nervio en la escena o desde la lista de estructuras.",
+    text: "El nervio alveolar inferior es una rama de V3. Identifica la rama mandibular en el atlas. Este conjunto no incluye una malla verificable de ese nervio; no se muestra un trayecto supuesto.",
+    tip: "Selecciona la mandíbula en la escena. La ficha del nervio está disponible como información textual.",
   },
   {
     title: "Explora las referencias",
     text: "El foramen mandibular se encuentra en la cara medial de la rama. En clínica, el pliegue pterigomandibular y la escotadura coronoidea son referencias relevantes; los tejidos blandos no están incluidos aquí.",
-    tip: "Reduce la opacidad del hueso y utiliza la vista lateral para explorar el trayecto.",
+    tip: "Oculta el cráneo y el maxilar; utiliza la vista lateral y la transparencia para explorar la mandíbula.",
   },
   {
     title: "Comprende el bloqueo",
@@ -86,7 +94,7 @@ const lessons = [
     tip: "El éxito clínico exige evaluación individual, formación supervisada y protocolos de seguridad.",
   },
 ];
-const initialSyringe = { x: 3.5, y: 0.7, z: 2.2, pitch: 0, yaw: -20 };
+const initialSyringe = { x: 3.8, y: -1.0, z: 3.5, pitch: 0, yaw: -20 };
 class Boundary extends React.Component {
   state = { error: false };
   static getDerivedStateFromError() {
@@ -98,8 +106,8 @@ class Boundary extends React.Component {
         <Info />
         <h3>No se pudo iniciar la vista 3D</h3>
         <p>
-          Activa WebGL o la aceleración gráfica del navegador y recarga la
-          página.
+          Comprueba que los archivos del modelo estén disponibles y activa WebGL
+          o la aceleración gráfica del navegador. Después recarga la página.
         </p>
         <button onClick={() => location.reload()}>Recargar</button>
       </div>
@@ -110,14 +118,15 @@ class Boundary extends React.Component {
 }
 function App() {
   const [visible, setVisible] = useState({
+    skull: true,
     mandible: true,
     maxilla: true,
     teeth: true,
-    nerve: true,
+    nerve: false,
     syringe: true,
   });
-  const [opacity, setOpacity] = useState(0.65);
-  const [selected, setSelected] = useState("nerve");
+  const [opacity, setOpacity] = useState(1);
+  const [selected, setSelected] = useState("skull");
   const [syringe, setSyringe] = useState(initialSyringe);
   const [tab, setTab] = useState("anatomy");
   const [mode, setMode] = useState("explore");
@@ -126,7 +135,9 @@ function App() {
   const [viewKey, setViewKey] = useState(0);
   const [help, setHelp] = useState(false);
   const [focus, setFocus] = useState(false);
-  const toggle = (key) => setVisible((v) => ({ ...v, [key]: !v[key] }));
+  const toggle = (key) => {
+    if (key !== "nerve") setVisible((v) => ({ ...v, [key]: !v[key] }));
+  };
   const reset = () => {
     setView("perspectiva");
     setViewKey((v) => v + 1);
@@ -218,10 +229,11 @@ function App() {
                   <strong>
                     {mode === "education"
                       ? "Bloqueo alveolar inferior"
-                      : "Complejo maxilomandibular"}
+                      : "Atlas craneofacial humano"}
                   </strong>
-                  <small>Modelo esquemático · No validado clínicamente</small>
+                  <small>BodyParts3D · Referencia anatómica adulta</small>
                 </div>
+                <ModelLoadingStatus />
                 <Boundary>
                   <Suspense
                     fallback={
@@ -323,7 +335,8 @@ function App() {
                           className="structure-name"
                           onClick={() => {
                             setSelected(key);
-                            setVisible((v) => ({ ...v, [key]: true }));
+                            if (key !== "nerve")
+                              setVisible((v) => ({ ...v, [key]: true }));
                           }}
                         >
                           <span
@@ -335,6 +348,12 @@ function App() {
                         <button
                           role="switch"
                           aria-checked={visible[key]}
+                          disabled={key === "nerve"}
+                          title={
+                            key === "nerve"
+                              ? "Sin malla nerviosa verificable en este conjunto"
+                              : undefined
+                          }
                           aria-label={`Mostrar ${data.name}`}
                           className={`toggle ${visible[key] ? "on" : ""}`}
                           onClick={() => toggle(key)}
@@ -366,8 +385,8 @@ function App() {
                   <div className="hint-box">
                     <Eye size={17} />
                     <p>
-                      Haz el hueso transparente para descubrir el recorrido del
-                      nervio.
+                      Explora huesos y raíces con transparencia. Nervio: ficha
+                      informativa, sin trayecto 3D disponible.
                     </p>
                   </div>
                 </div>
@@ -387,7 +406,7 @@ function App() {
                   </p>
                   {[
                     ["x", "Posición X", -5, 5, 0.1, ""],
-                    ["y", "Altura Y", -1, 4, 0.1, ""],
+                    ["y", "Altura Y", -4, 4, 0.1, ""],
                     ["z", "Profundidad Z", -4, 5, 0.1, ""],
                     ["pitch", "Inclinación", -90, 90, 1, "°"],
                     ["yaw", "Rotación", -180, 180, 1, "°"],
@@ -492,7 +511,7 @@ function App() {
                   onClick={() => {
                     setStep((s) => (s + 1) % 4);
                     setSelected("nerve");
-                    setVisible((v) => ({ ...v, nerve: true }));
+                    setVisible((v) => ({ ...v, nerve: false }));
                   }}
                 >
                   {step === 3 ? "Reiniciar recorrido" : "Siguiente"}
@@ -524,9 +543,36 @@ function App() {
               <div className="banner-decoration">+</div>
             </section>
           )}
+          <div className="educational-notice">
+            SIMULADOR EXCLUSIVAMENTE EDUCATIVO. LOS CASOS SIN FICTICIOS Y NO
+            SUSTITYEN LA VALORACIÓN CLÍNICA PROFESIONAL
+          </div>
+          <div className="model-credits">
+            <strong>Modelo anatómico: BodyParts3D 3.0</strong> · © Database
+            Center for Life Science (DBCLS) ·{" "}
+            <a
+              href="https://creativecommons.org/licenses/by-sa/2.1/jp/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              CC BY-SA 2.1 Japan
+            </a>
+            <span>
+              Conversión STL → GLB y normales suavizadas. 50 mallas · 28
+              dientes, sin terceros molares. Sin mallas nerviosas en esta
+              versión.{" "}
+              <a
+                href={`${import.meta.env.BASE_URL}models/bodyparts3d/ATTRIBUTION.md`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Procedencia y adaptaciones
+              </a>
+            </span>
+          </div>
           <footer className="page-footer">
             <span>
-              <Info size={14} /> Recurso educativo esquemático. No sustituye la
+              <Info size={14} /> Referencia anatómica educativa. No sustituye la
               formación clínica supervisada ni sirve para planificar
               tratamientos.
             </span>
@@ -562,9 +608,10 @@ function App() {
               vista.
             </p>
             <p>
-              Selecciona el nervio amarillo o una estructura de la lista para
-              leer su explicación. Los interruptores controlan la visibilidad;
-              el deslizador permite ver a través del hueso.
+              Selecciona un hueso o un diente en la escena o desde la lista. El
+              nervio solo tiene ficha textual; no hay malla nerviosa en este
+              atlas. Los interruptores controlan la visibilidad; el deslizador
+              permite ver a través del hueso.
             </p>
             <p>
               La pestaña Jeringa ofrece cinco controles de movimiento. Las
@@ -572,8 +619,8 @@ function App() {
               orientación.
             </p>
             <strong>
-              Modelo esquemático no validado anatómicamente. No representa una
-              técnica de inyección clínicamente segura.
+              Atlas anatómico de referencia, no validado para procedimientos. No
+              representa una técnica de inyección clínicamente segura.
             </strong>
             <button className="primary-button" onClick={() => setHelp(false)}>
               Comenzar a explorar <ArrowRight size={16} />

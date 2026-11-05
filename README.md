@@ -1,58 +1,71 @@
 # Dental Anesthesia 3D
 
-Simulador web educativo en español para estudiantes de odontología, construido con React 19, Vite, Three.js y React Three Fiber. No necesita servidor de datos, cuentas, claves ni modelos descargados de terceros.
+Simulador educativo en español con React, Vite, Three.js y React Three Fiber. Incluye un **atlas craneofacial de BodyParts3D 3.0 / DBCLS**, con geometría anatómica importada en GLB: **22 huesos y 28 dientes permanentes**, 50 mallas y 441.936 triángulos. La anatomía ya no se construye a partir de primitivas geométricas.
 
-## Ejecutar y ver la aplicación
+## Ejecutar y visualizar
 
-Requisito: Node.js 22.12 o superior (validado con Node.js 24).
+Node.js 22.12 o superior (validado con Node.js 24):
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Abre en tu navegador la dirección que muestra Vite (habitualmente el puerto 5173). En un entorno remoto, usa el reenvío de puertos de tu editor para el puerto **5173**. La disponibilidad del reenvío depende de la plataforma; no es un enlace público permanente.
+Vite escucha en el puerto **5173**. En un entorno remoto utiliza el reenvío de ese puerto de tu editor, si está disponible. Ese reenvío no equivale a un enlace público permanente. Los archivos anatómicos se incluyen en `public/models/bodyparts3d/`; no se descargan desde bibliotecas externas mientras se usa el simulador.
 
-## Funciones
+## Explorar el atlas
 
-- Mandíbula, maxilar, 28 dientes esquemáticos y trayecto bilateral del nervio alveolar inferior.
-- Órbita con arrastre izquierdo, zoom con rueda y desplazamiento con arrastre derecho.
-- Selección de estructuras en la escena o en la lista, con explicaciones en español.
-- Interruptores independientes para huesos, dientes, nervio y jeringa.
-- Transparencia ósea regulable; vistas frontal, lateral y en perspectiva.
-- Jeringa tipo carpule con posición X/Y/Z, inclinación y rotación; restablecimiento de controles.
-- Recorrido educativo de cuatro pasos sobre el bloqueo alveolar inferior.
-- Diseño adaptable a escritorio y móvil; visor ampliable y ayuda integrada.
+- Arrastre izquierdo: rotación; rueda: zoom; arrastre derecho: desplazamiento.
+- Cráneo, maxilar, mandíbula y dientes seleccionables y con visibilidad independiente.
+- Transparencia ósea regulable; los dientes conservan su opacidad para observar las raíces.
+- Vistas frontal, lateral y en perspectiva; cámara adaptada al ancho del visor.
+- Jeringa ilustrativa tipo carpule con cartucho translúcido, bastidor metálico, anillos, émbolo y aguja fina. Controles X/Y/Z, inclinación y rotación.
+- Recorrido educativo y fichas en español, manteniendo la organización de la interfaz.
+- Aviso educativo solicitado, visible en la zona inferior, y atribución de las mallas.
+
+**Nervio alveolar inferior:** el conjunto 3.0 descargado no proporciona una malla verificable de este nervio. Se retiraron los trayectos dibujados de la primera versión. Su ficha textual continúa disponible y el interruptor de visibilidad permanece deshabilitado. No se simula un nervio con coordenadas inventadas.
+
+## Procedencia y licencias
+
+**BodyParts3D, (c) The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan.**
+
+Datos anatómicos: **Creative Commons Attribution-ShareAlike 2.1 Japan**, que permite su utilización y redistribución cumpliendo la atribución y la condición de compartir igual para las adaptaciones. Se conservan el aviso original de licencia, los identificadores FMA, enlaces y hashes de las fuentes. No se atribuye a la institución una validación ni un respaldo de esta aplicación.
+
+Consulta [la atribución completa](public/models/bodyparts3d/ATTRIBUTION.md), [el manifiesto de integridad](public/models/bodyparts3d/manifest.json) y [las decisiones de selección del recurso](docs/model-sources.md). La licencia de las mallas es independiente de las licencias del código y las dependencias. La jeringa es una representación original de la aplicación, no un modelo anatómico de DBCLS.
+
+## Reconstruir el GLB
+
+```bash
+python3 scripts/build-anatomy.py
+```
+
+Solo requiere la biblioteca estándar de Python y acceso HTTPS al espejo indicado en el script. Descarga STL desde una revisión inmutable de GitHub, comprueba sus SHA-256 contra el manifiesto guardado y genera el GLB con los mismos triángulos y relaciones espaciales. Calcula normales suaves y convierte los ejes; no esculpe ni desplaza individualmente huesos o dientes. La caché se guarda en `/tmp/dental-bodyparts3d-3.0`. **No hace falta reconstruirlo para ejecutar o publicar la app.**
 
 ## Comprobar y compilar
 
 ```bash
+npm test
 npm run build
 npm run preview
-npm test
 ```
 
-Las pruebas Playwright comprueban píxeles WebGL de la escena, cambios visuales al ocultar el nervio y cambiar la cámara, selección, transparencia, jeringa, recorrido educativo y diseño móvil. Usan Chromium del sistema si existe en `/usr/bin/chromium`; en otras máquinas, instala primero el navegador con `npx playwright install chromium`. No se necesitan estas herramientas de prueba para publicar la aplicación.
+Las pruebas comprueban la integridad del GLB y su inventario anatómico, píxeles WebGL en Chromium, errores de consola/HTTP, selección directa, controles de visibilidad, transparencia, cámara, jeringa, modo educativo y diseño móvil. Se usa Chromium en `/usr/bin/chromium` si está instalado. En otras máquinas instala primero el navegador de pruebas con `npx playwright install chromium`.
 
-## Publicar un enlace para compartir
+`npm run build` genera `dist/`; `npm run preview` sirve esa compilación en el puerto **4173**. Three.js y el cargador GLB producen un paquete grande; la compilación puede emitir un aviso de tamaño sin impedir su ejecución.
 
-La compilación genera un sitio estático en `dist/`.
+## Publicación
 
-**Netlify:** ejecuta `npm run build` y carga la carpeta `dist` en Netlify Drop. El servicio proporciona un enlace HTTPS compartible. También puedes conectar este repositorio a Netlify; `netlify.toml` contiene el comando y el directorio de publicación.
+- **Netlify Drop:** ejecuta `npm run build` y carga `dist/`; el servicio genera el enlace HTTPS. Al conectar el repositorio, `netlify.toml` ya define el comando y la carpeta.
+- **Vercel:** importa el proyecto como Vite, con `npm run build` y salida `dist`.
 
-**Vercel:** importa el repositorio, selecciona Vite y utiliza `npm run build` con directorio de salida `dist`. No se requieren variables de entorno.
+No se requieren claves, cuentas dentro del simulador ni variables de entorno. Los recursos usan rutas relativas, compatibles con alojamiento en un subdirectorio. Conserva los archivos de atribución y licencia al publicar. Compilar o publicar el entorno de desarrollo no publica automáticamente el sitio web.
 
-La app usa rutas de recursos relativas para admitir también alojamiento en un subdirectorio. La creación de una compilación local no equivale a una publicación: el enlace público solo existe después de desplegarla en un servicio de alojamiento.
+## Límites educativos
 
-## Alcance anatómico y educativo
+Es un atlas de referencia masculino adulto, **no un modelo específico de paciente ni validado para planificar procedimientos**. Los terceros molares no están incluidos; no se añadieron piezas ni trayectos nerviosos supuestos. Los tejidos blandos, variaciones individuales y detalles pequeños como el conducto mandibular pueden no estar representados con precisión suficiente para anestesia clínica.
 
-**El modelo es esquemático y no está validado clínicamente.** La geometría se genera en `src/Anatomy.jsx`; no procede de segmentación de imágenes médicas. Las proporciones, raíces, trayectos nerviosos y referencias son simplificaciones. El maxilar no reproduce el cráneo completo; los tejidos blandos y las variaciones anatómicas no están representados.
+La jeringa no está calibrada, no detecta colisiones ni simula punción, aspiración, dosis o evaluación técnica. Su posición inicial no recomienda un punto de inyección. Se requiere formación clínica supervisada.
 
-La jeringa tiene movimiento libre, sin colisiones, punción, aspiración, dosis ni evaluación de técnica. Su posición inicial no indica una posición de inyección recomendada. El recorrido explica relaciones anatómicas; no prescribe profundidades, dosis ni angulaciones. No debe utilizarse para planificar tratamientos o practicar procedimientos sin supervisión. Antes de ampliar a una simulación clínica se requiere revisión por docentes y un modelo anatómico validado.
+El texto inferior se conserva exactamente como lo solicitó la usuaria:
 
-## Estructura
-
-- `src/main.jsx`: interfaz, estado, paneles y recorrido educativo.
-- `src/Anatomy.jsx`: geometría anatómica, jeringa, iluminación y cámara.
-- `src/styles.css`: estilos y diseño adaptable.
-- `tests/simulator.spec.js`: pruebas funcionales de navegador.
+> SIMULADOR EXCLUSIVAMENTE EDUCATIVO. LOS CASOS SIN FICTICIOS Y NO SUSTITYEN LA VALORACIÓN CLÍNICA PROFESIONAL
