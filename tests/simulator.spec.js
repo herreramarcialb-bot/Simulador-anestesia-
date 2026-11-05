@@ -107,19 +107,6 @@ test("atlas en Chromium: selección, visibilidad, transparencia, cámara y jerin
   });
   await page.mouse.up();
   await page.mouse.wheel(0, -160);
-  await page
-    .getByRole("button", { name: "Nervio alveolar inferior", exact: true })
-    .click();
-  await expect(
-    page.getByRole("switch", {
-      name: "Mostrar Nervio alveolar inferior",
-      exact: true,
-    }),
-  ).toBeDisabled();
-  await page.getByText("Más información", { exact: true }).click();
-  await expect(page.locator(".selection-detail")).toContainText(
-    "no contiene un trayecto alveolar inferior verificable",
-  );
   await page.getByRole("button", { name: "Jeringa", exact: true }).click();
   await page.getByLabel("Posición X", { exact: true }).fill("1.5");
   await page.getByLabel("Rotación", { exact: true }).fill("45");

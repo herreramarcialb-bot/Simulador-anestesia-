@@ -20,10 +20,10 @@ No se incorporaron recursos de Sketchfab o NIH 3D ni modelos cuya licencia depen
 
 ## Decisión sobre los nervios
 
-No se conserva la curva manual de la primera versión. Sin malla descargada y verificable, no es correcto presentar un trayecto como anatómicamente fundamentado. La interfaz mantiene la ficha explicativa y señala que **no hay representación nerviosa 3D en esta versión**.
+El atlas óseo conserva las mallas originales. La usuaria autorizó posteriormente un módulo educativo con trayectos **claramente esquemáticos** si no podían verificarse mallas nerviosas adecuadas. Esa alternativa se implementa ahora en una capa separada del atlas: no se atribuye a DBCLS, no implica una segmentación y no afirma posiciones clínicas precisas.
 
-Opciones para una futura integración: obtener las mallas 4.3 con su licencia y hashes, y revisar su registro con el cráneo de referencia; o incorporar un conjunto craneofacial con nervios segmentados y licencia compatible aprobado por la profesora. Cualquier trazo manual requeriría referencias documentadas, revisión docente y etiquetado específico antes de mostrarse; no se utilizó como sustituto aquí.
+Las diez ramas, mapas de tejidos blandos y relaciones pulpares se documentan en [public/neuro-references.md](../public/neuro-references.md). La búsqueda de modelos externos sigue sin proporcionar mallas nerviosas compatibles que puedan descargarse y verificarse. Se mantienen los límites y la atribución del atlas; la app no muestra puntos de punción.
 
 ## Límites de precisión
 
-Tener procedencia verificable no equivale a validación clínica para anestesia. Se trata de una referencia anatómica masculina adulta. No hay tejidos blandos ni 32 dientes completos: la fuente seleccionada proporciona **28 dientes permanentes, sin terceros molares**. No se añadieron piezas duplicadas. La anatomía del conducto mandibular y detalles pequeños pueden ser insuficientes para orientar una punción. La jeringa ilustrativa y su ubicación no representan una técnica recomendada.
+Tener procedencia verificable no equivale a validación clínica para anestesia. Se trata de una referencia anatómica masculina adulta. No hay tejidos blandos segmentados ni 32 dientes completos: la fuente seleccionada proporciona **28 dientes permanentes, sin terceros molares**. No se añadieron piezas duplicadas. Los nervios y tejidos blandos del nuevo módulo son esquemas explícitos, no segmentos del atlas. La anatomía del conducto mandibular y detalles pequeños pueden ser insuficientes para orientar una punción. La jeringa ilustrativa y su ubicación no representan una técnica recomendada.

@@ -1089,3 +1089,397 @@ h1 > span {
   transform: translate(-50%, -50%);
   z-index: 3;
 }
+
+/* The existing atlas layout is retained; only the educational module is added. */
+.panel-tabs {
+  gap: 16px;
+  justify-content: space-between;
+}
+.panel-tabs button {
+  font-size: 10px;
+}
+.neuro-panel {
+  max-height: 480px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.neuro-warning {
+  background: #fcf6e7;
+  border: 1px solid #ecdfbf;
+  padding: 9px;
+  border-radius: 5px;
+  font-size: 10px;
+  line-height: 1.6;
+  color: #927334;
+  margin: 12px 0;
+}
+.neuro-select-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 14px 0 8px;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d4e1d8;
+  border-radius: 5px;
+  background: #fff;
+  color: #33564b;
+  font: inherit;
+  font-size: 11px;
+  min-width: 0;
+}
+.neuro-check,
+.territory-enable {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 14px 0 8px;
+}
+.neuro-check input,
+.territory-enable input {
+  flex-shrink: 0;
+}
+.microcopy {
+  font-size: 10px;
+  line-height: 1.75;
+  color: #819184;
+  margin: 9px 0;
+}
+.neuro-division {
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #7e9586;
+  margin: 17px 0 7px;
+}
+.neuro-list .structure-row {
+  padding: 0 5px;
+  min-height: 32px;
+}
+.neuro-list .structure-name {
+  font-size: 10px;
+}
+.neuro-list-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+.neuro-list-actions button,
+.outline-action,
+.neuro-reveal {
+  padding: 8px 10px;
+  border: 1px solid #d5e1d8;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #477b63;
+}
+.neuro-reveal {
+  width: 100%;
+  margin-top: 15px;
+  background: #eff5ee;
+}
+.nerve-facts {
+  margin: 12px 0 0;
+}
+.nerve-facts dt,
+.territory-facts dt {
+  font-size: 10px;
+  color: #48765d;
+  font-weight: 700;
+  margin: 12px 0 4px;
+}
+.nerve-facts dd,
+.territory-facts dd {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.75;
+  color: #7f8e80;
+}
+.neuro-scene-notice {
+  position: absolute;
+  z-index: 2;
+  top: 88px;
+  left: 24px;
+  max-width: 390px;
+  width: calc(100% - 90px);
+  pointer-events: none;
+  background: #fffaf0d9;
+  padding: 8px 10px;
+  color: #9b7932;
+  border: 1px solid #e3d6b8;
+  border-radius: 5px;
+  font-size: 8px;
+  line-height: 1.6;
+}
+.neuro-scene-notice strong {
+  font-weight: 600;
+  display: block;
+}
+.neuro-learning {
+  margin-top: 23px;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 22px;
+}
+.territory-card,
+.quiz-card {
+  border: 1px solid #dce6dd;
+  border-radius: 9px;
+  background: #fff;
+  padding: 25px 28px;
+}
+.neuro-learning h2 {
+  font-family: Manrope, sans-serif;
+  font-size: 19px;
+  letter-spacing: -0.5px;
+  margin-top: 8px;
+}
+.module-intro {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #859486;
+  margin: 10px 0 20px;
+}
+.territory-enable {
+  font-size: 12px;
+  font-weight: 600;
+  color: #46745b;
+  background: #edf5ef;
+  padding: 11px;
+  border-radius: 5px;
+}
+.territory-legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  font-size: 10px;
+  color: #7d8b7d;
+}
+.territory-legend label,
+.territory-legend span {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.territory-legend i {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.territory-facts {
+  margin: 0;
+}
+.territory-facts dd {
+  font-size: 11px;
+}
+.territory-note {
+  background: #fff8e9;
+  padding: 10px 13px;
+  color: #968045;
+  border-radius: 5px;
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+.outline-action {
+  margin-top: 10px;
+}
+.quiz-illustration {
+  padding: 32px;
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 8px;
+  font-family: Manrope, sans-serif;
+  font-weight: 700;
+  background: #f2f6ef;
+  color: #5d8c6e;
+  border-radius: 8px;
+  margin: 24px 0;
+}
+.quiz-illustration span {
+  font-size: 23px;
+  color: #cfb263;
+}
+.quiz-card > p:not(.microcopy) {
+  font-size: 11px;
+  color: #81907f;
+  line-height: 1.8;
+}
+.quiz-card .primary-button {
+  margin: 20px 0 15px;
+}
+.quiz-progress {
+  font-size: 10px;
+  color: #688c72;
+  background: #f0f5ed;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+.quiz-card h3 {
+  font-family: Manrope, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.quiz-feedback {
+  font-size: 11px;
+  line-height: 1.8;
+  background: #fff7e6;
+  color: #9b8044;
+  border: 1px solid #eee2c9;
+  padding: 13px;
+  border-radius: 5px;
+  margin-top: 16px;
+  min-height: 66px;
+}
+.quiz-feedback.correct {
+  background: #edf6ef;
+  color: #4c865f;
+  border-color: #cfdfce;
+}
+.quiz-end {
+  display: block;
+  margin: 16px 0;
+}
+.quiz-list-hidden {
+  padding: 20px 12px;
+  border: 1px dashed #c5d9cb;
+  color: #6e8e76;
+  border-radius: 5px;
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+.quiz-result {
+  font-size: 12px;
+  line-height: 1.8;
+  padding: 15px;
+  background: #edf6ef;
+  color: #44835d;
+  border-radius: 6px;
+  margin-top: 16px;
+}
+.neuro-sources {
+  font-size: 10px;
+  color: #7c8e7f;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+.neuro-sources summary {
+  cursor: pointer;
+  color: #48765e;
+}
+.neuro-sources p {
+  margin-top: 10px;
+}
+.neuro-sources a {
+  text-decoration: underline;
+  color: #48765e;
+}
+@media (max-width: 850px) {
+  .neuro-learning {
+    grid-template-columns: 1fr;
+  }
+  .neuro-panel {
+    max-height: 460px;
+  }
+  .neuro-scene-notice {
+    font-size: 7px;
+    left: 17px;
+    top: 82px;
+    max-width: 280px;
+  }
+  .neuro-learning h2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 520px) {
+  .territory-card,
+  .quiz-card {
+    padding: 20px;
+  }
+  .neuro-scene-notice {
+    width: calc(100% - 34px);
+  }
+  .neuro-learning {
+    gap: 16px;
+  }
+  .panel-tabs {
+    gap: 12px;
+  }
+  .territory-legend {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.territory-scene-key {
+  position: absolute;
+  z-index: 2;
+  bottom: 65px;
+  right: 20px;
+  max-width: 290px;
+  padding: 11px;
+  background: #fffffff0;
+  border: 1px solid #d7e3d8;
+  border-radius: 6px;
+  pointer-events: none;
+}
+.territory-scene-key strong {
+  font-size: 10px;
+  display: block;
+  color: #496e55;
+}
+.territory-scene-key small {
+  display: block;
+  font-size: 8px;
+  color: #8a9a89;
+  margin: 5px 0 8px;
+}
+.territory-scene-key span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+  color: #8a9787;
+}
+.territory-scene-key i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+}
+.pulp-swatch {
+  background: #3c8cde;
+}
+.soft-swatch {
+  background: #d85690;
+}
+.partial-swatch {
+  background: #d49b2c;
+}
+.nerve-technique-link {
+  display: block;
+  font-size: 10px;
+  line-height: 1.7;
+  color: #4f8765;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-align: left;
+  padding: 3px 0;
+}
+@media (max-width: 520px) {
+  .territory-scene-key {
+    bottom: 65px;
+    right: 12px;
+    padding: 8px;
+    max-width: 240px;
+  }
+}

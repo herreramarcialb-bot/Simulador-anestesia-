@@ -35,7 +35,9 @@ Run `python3 scripts/build-anatomy.py` from the repository root to reproduce the
 
 ## Nerves and limitations
 
-The downloaded 3.0 collection does **not** supply verified inferior alveolar nerve meshes. The earlier hand-drawn nerve paths have been removed. The nerve panel provides general educational text only and the visibility switch is disabled. A newer 4.3 mirror identifies the two trunks (FMA80518/FMA80519), but its actual LFS meshes could not be retrieved and verified in this environment; they are **not** included or reconstructed from guessed points. A future integration must verify the license, the actual mesh, coordinate registration and anatomical relationships before displaying it.
+The downloaded 3.0 collection does **not** supply verified inferior alveolar nerve meshes. The original atlas meshes remain unchanged. A newer 4.3 mirror identifies the two trunks (FMA80518/FMA80519), but actual compatible LFS meshes could not be retrieved and verified in this environment.
+
+At the user's explicit request, a separate educational module now adds **hand-authored schematic nerve paths and conceptual soft-tissue territory surfaces**. These are original application illustrations, **not DBCLS anatomical meshes**, not extracted from this dataset, and not claimed to have clinical spatial accuracy. They are labeled as approximations throughout the application. See `../../neuro-references.md` for scope and conceptual references. The BodyParts3D license and attribution continue to apply to the original and adapted atlas geometry and images.
 
 This is a detailed reference atlas, not a patient-specific scan or a validated dental anesthesia planning device. Human variation, small foramina, the mandibular canal and soft tissues may be incompletely represented by this source. The virtual syringe is an original illustrative instrument model, **not** a clinical device model from DBCLS; its dimensions are not calibrated for procedural guidance. No injection target is certified.
 

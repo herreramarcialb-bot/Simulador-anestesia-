@@ -22,6 +22,9 @@ import {
 } from "lucide-react";
 import { Scene, ModelLoadingStatus } from "./Anatomy";
 import "./styles.css";
+import { NERVES, NEURO_NOTICE, TECHNIQUES } from "./neuroData";
+import { NeuroPanel, NeuroLearning, NerveDetails } from "./NeuroPanel";
+import { useNeuro } from "./useNeuro";
 const structures = {
   skull: {
     name: "Cráneo",
@@ -55,14 +58,6 @@ const structures = {
     detail:
       "El conjunto incluye 28 piezas permanentes; no incluye terceros molares. Es una referencia anatómica, no una reproducción de la dentición de cada paciente.",
   },
-  nerve: {
-    name: "Nervio alveolar inferior",
-    color: "#e7ad40",
-    subtitle: "Información anatómica · Sin malla nerviosa disponible",
-    text: "Rama del nervio mandibular que entra por el foramen mandibular y recorre el conducto mandibular. Proporciona sensibilidad a los dientes inferiores.",
-    detail:
-      "Visualización no disponible: el conjunto BodyParts3D 3.0 incorporado no contiene un trayecto alveolar inferior verificable. Se retiró el recorrido esquemático anterior; no se dibujan nervios inventados. La información textual es general y no implica que exista una malla nerviosa en esta escena.",
-  },
   syringe: {
     name: "Jeringa odontológica",
     color: "#88aab0",
@@ -75,8 +70,8 @@ const structures = {
 const lessons = [
   {
     title: "Reconoce la anatomía",
-    text: "El nervio alveolar inferior es una rama de V3. Identifica la rama mandibular en el atlas. Este conjunto no incluye una malla verificable de ese nervio; no se muestra un trayecto supuesto.",
-    tip: "Selecciona la mandíbula en la escena. La ficha del nervio está disponible como información textual.",
+    text: "El nervio alveolar inferior es una rama de V3. Identifica la rama mandibular en el atlas. Las curvas de la pestaña Nervios son aproximaciones educativas, no nervios segmentados ni trayectos clínicamente exactos.",
+    tip: "Activa el nervio alveolar inferior en la pestaña Nervios y explora su relación conceptual con la mandíbula.",
   },
   {
     title: "Explora las referencias",
@@ -122,7 +117,6 @@ function App() {
     mandible: true,
     maxilla: true,
     teeth: true,
-    nerve: false,
     syringe: true,
   });
   const [opacity, setOpacity] = useState(1);
@@ -136,13 +130,15 @@ function App() {
   const [help, setHelp] = useState(false);
   const [focus, setFocus] = useState(false);
   const toggle = (key) => {
-    if (key !== "nerve") setVisible((v) => ({ ...v, [key]: !v[key] }));
+    setVisible((v) => ({ ...v, [key]: !v[key] }));
   };
   const reset = () => {
     setView("perspectiva");
     setViewKey((v) => v + 1);
     setSyringe({ ...initialSyringe });
   };
+  const neuro = useNeuro({ setSelected, setTab, setOpacity, setVisible });
+  const nerveId = selected?.startsWith("neuro-") ? selected.slice(6) : null;
   const item = structures[selected];
   return (
     <div className={`app ${focus ? "focus-mode" : ""}`}>
@@ -233,6 +229,30 @@ function App() {
                   </strong>
                   <small>BodyParts3D · Referencia anatómica adulta</small>
                 </div>
+                {neuro.enabled && (
+                  <div className="neuro-scene-notice">
+                    {NEURO_NOTICE}
+                    {neuro.xray && (
+                      <strong> Superposición sin profundidad real.</strong>
+                    )}
+                  </div>
+                )}
+                {neuro.enabled && neuro.showTerritory && (
+                  <div className="territory-scene-key">
+                    <strong>{TECHNIQUES[neuro.technique].name}</strong>
+                    <small>
+                      {TECHNIQUES[neuro.technique].bilateral
+                        ? "Paladar anterior bilateral"
+                        : `Lado ${neuro.side === "left" ? "izquierdo" : "derecho"} del paciente`}
+                    </small>
+                    <span>
+                      <i className="pulp-swatch" />
+                      Pulpar <i className="soft-swatch" />
+                      Tejidos blandos <i className="partial-swatch" />
+                      Parcial/variable
+                    </span>
+                  </div>
+                )}
                 <ModelLoadingStatus />
                 <Boundary>
                   <Suspense
@@ -244,7 +264,8 @@ function App() {
                       visible={visible}
                       boneOpacity={opacity}
                       selected={selected}
-                      onSelect={setSelected}
+                      onSelect={neuro.onSceneSelect}
+                      neuro={neuro}
                       syringe={syringe}
                       view={view}
                       viewKey={viewKey}
@@ -308,13 +329,28 @@ function App() {
                   <Layers3 size={16} /> Anatomía
                 </button>
                 <button
+                  className={tab === "nerves" ? "active" : ""}
+                  onClick={() => {
+                    setTab("nerves");
+                    neuro.setEnabled(true);
+                  }}
+                >
+                  Nervios
+                </button>
+                <button
                   className={tab === "syringe" ? "active" : ""}
                   onClick={() => setTab("syringe")}
                 >
                   <Syringe size={16} /> Jeringa
                 </button>
               </div>
-              {tab === "anatomy" ? (
+              {tab === "nerves" ? (
+                <NeuroPanel
+                  {...neuro}
+                  selected={selected}
+                  onSelect={neuro.selectNerve}
+                />
+              ) : tab === "anatomy" ? (
                 <div className="control-content">
                   <div className="section-label">
                     ESTRUCTURAS{" "}
@@ -335,8 +371,7 @@ function App() {
                           className="structure-name"
                           onClick={() => {
                             setSelected(key);
-                            if (key !== "nerve")
-                              setVisible((v) => ({ ...v, [key]: true }));
+                            setVisible((v) => ({ ...v, [key]: true }));
                           }}
                         >
                           <span
@@ -348,12 +383,6 @@ function App() {
                         <button
                           role="switch"
                           aria-checked={visible[key]}
-                          disabled={key === "nerve"}
-                          title={
-                            key === "nerve"
-                              ? "Sin malla nerviosa verificable en este conjunto"
-                              : undefined
-                          }
                           aria-label={`Mostrar ${data.name}`}
                           className={`toggle ${visible[key] ? "on" : ""}`}
                           onClick={() => toggle(key)}
@@ -385,8 +414,8 @@ function App() {
                   <div className="hint-box">
                     <Eye size={17} />
                     <p>
-                      Explora huesos y raíces con transparencia. Nervio: ficha
-                      informativa, sin trayecto 3D disponible.
+                      Explora huesos y raíces con transparencia. La pestaña
+                      Nervios muestra esquemas y territorios educativos.
                     </p>
                   </div>
                 </div>
@@ -447,7 +476,13 @@ function App() {
                 <div className="section-label">
                   <span className="tiny-yellow" /> ESTRUCTURA SELECCIONADA
                 </div>
-                {item ? (
+                {nerveId && NERVES[nerveId] ? (
+                  <NerveDetails
+                    id={nerveId}
+                    onTechnique={neuro.onChooseTechnique}
+                    disabled={neuro.quiz.active}
+                  />
+                ) : item ? (
                   <>
                     <h2>{item.name}</h2>
                     <span className="detail-subtitle">{item.subtitle}</span>
@@ -468,6 +503,7 @@ function App() {
               </div>
             </aside>
           </div>
+          {neuro.visited && <NeuroLearning {...neuro} />}
           {mode === "education" ? (
             <section className="lesson-card">
               <div className="lesson-heading">
@@ -510,8 +546,7 @@ function App() {
                 <button
                   onClick={() => {
                     setStep((s) => (s + 1) % 4);
-                    setSelected("nerve");
-                    setVisible((v) => ({ ...v, nerve: false }));
+                    neuro.selectNerve("ian");
                   }}
                 >
                   {step === 3 ? "Reiniciar recorrido" : "Siguiente"}
@@ -559,8 +594,8 @@ function App() {
             </a>
             <span>
               Conversión STL → GLB y normales suavizadas. 50 mallas · 28
-              dientes, sin terceros molares. Sin mallas nerviosas en esta
-              versión.{" "}
+              dientes, sin terceros molares. Los nervios y tejidos blandos son
+              esquemas educativos originales, no mallas de DBCLS.{" "}
               <a
                 href={`${import.meta.env.BASE_URL}models/bodyparts3d/ATTRIBUTION.md`}
                 target="_blank"
@@ -609,9 +644,10 @@ function App() {
             </p>
             <p>
               Selecciona un hueso o un diente en la escena o desde la lista. El
-              nervio solo tiene ficha textual; no hay malla nerviosa en este
-              atlas. Los interruptores controlan la visibilidad; el deslizador
-              permite ver a través del hueso.
+              módulo Nervios añade esquemas aproximados y mapas de territorios,
+              diferenciados de las mallas óseas del atlas. Los interruptores
+              controlan la visibilidad; el deslizador permite ver a través del
+              hueso.
             </p>
             <p>
               La pestaña Jeringa ofrece cinco controles de movimiento. Las

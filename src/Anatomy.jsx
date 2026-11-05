@@ -8,6 +8,8 @@ import {
   useProgress,
 } from "@react-three/drei";
 import { DentalSyringe } from "./DentalSyringe";
+import { NeuroLayer } from "./NeuroLayer";
+import { FMA_TO_FDI, territoryTeeth, TERRITORY_COLORS } from "./neuroData";
 
 const MODEL_URL = `${import.meta.env.BASE_URL}models/bodyparts3d/craniofacial.glb`;
 // One common rigid transform for all source structures; native anatomical
@@ -15,7 +17,7 @@ const MODEL_URL = `${import.meta.env.BASE_URL}models/bodyparts3d/craniofacial.gl
 const SCALE = 0.032;
 const CENTER = [0, 1536.94, 96.4];
 
-function AnatomyModel({ visible, boneOpacity, selected, onSelect }) {
+function AnatomyModel({ visible, boneOpacity, selected, onSelect, neuro }) {
   const { scene } = useGLTF(MODEL_URL);
   const { gl } = useThree();
   const parts = useMemo(() => {
@@ -39,16 +41,31 @@ function AnatomyModel({ visible, boneOpacity, selected, onSelect }) {
       delete gl.domElement.dataset.meshCount;
     };
   }, [gl, parts]);
+  const territory = territoryTeeth(neuro.technique, neuro.side);
   return (
     <group scale={SCALE} position={CENTER.map((v) => -v * SCALE)}>
       {parts.map((part) => {
         const tooth = part.key === "teeth";
         const active = selected === part.key;
+        const fdi = FMA_TO_FDI[part.fma];
+        const tint =
+          tooth && neuro.enabled && neuro.showTerritory && neuro.showPulp
+            ? territory.pulp.includes(fdi)
+              ? TERRITORY_COLORS.pulp
+              : territory.partial.includes(fdi)
+                ? TERRITORY_COLORS.partial
+                : null
+            : null;
         return (
           <mesh
             key={part.name}
             name={part.name}
             geometry={part.geometry}
+            raycast={
+              neuro.enabled && neuro.xray
+                ? () => null
+                : THREE.Mesh.prototype.raycast
+            }
             visible={visible[part.key]}
             onClick={(e) => {
               e.stopPropagation();
@@ -63,15 +80,17 @@ function AnatomyModel({ visible, boneOpacity, selected, onSelect }) {
             }}
           >
             <meshStandardMaterial
-              color={tooth ? "#f5eee0" : active ? "#dfcda8" : "#d8cbb4"}
+              color={
+                tint || (tooth ? "#f5eee0" : active ? "#dfcda8" : "#d8cbb4")
+              }
               roughness={tooth ? 0.32 : 0.72}
               metalness={0}
               transparent={!tooth && boneOpacity < 1}
               opacity={tooth ? 1 : boneOpacity}
               depthWrite={tooth || boneOpacity === 1}
               side={THREE.DoubleSide}
-              emissive={active ? "#3b2b12" : "#000000"}
-              emissiveIntensity={active ? 0.1 : 0}
+              emissive={tint || (active ? "#3b2b12" : "#000000")}
+              emissiveIntensity={tint ? 0.25 : active ? 0.1 : 0}
             />
           </mesh>
         );
@@ -95,6 +114,7 @@ export function Scene({
   syringe,
   viewKey,
   view,
+  neuro,
 }) {
   return (
     <Canvas
@@ -122,8 +142,16 @@ export function Scene({
           boneOpacity={boneOpacity}
           selected={selected}
           onSelect={onSelect}
+          neuro={neuro}
         />
       </Suspense>
+      {neuro.enabled && (
+        <NeuroLayer
+          {...neuro}
+          selected={selected}
+          onPick={(id) => onSelect(`neuro-${id}`)}
+        />
+      )}
       {visible.syringe && (
         <DentalSyringe
           syringe={syringe}
@@ -142,18 +170,22 @@ export function Scene({
       <OrbitControls
         key={`${viewKey}-${view}`}
         makeDefault
-        target={[0, 0, 0]}
+        target={neuro.enabled ? [0, -1.3, 1.8] : [0, 0, 0]}
         minDistance={5}
         maxDistance={26}
         enableDamping
         minPolarAngle={0.1}
         maxPolarAngle={Math.PI * 0.92}
       />
-      <CameraView key={`camera-${viewKey}-${view}`} view={view} />
+      <CameraView
+        key={`camera-${viewKey}-${view}`}
+        view={view}
+        neuroEnabled={neuro.enabled}
+      />
     </Canvas>
   );
 }
-function CameraView({ view }) {
+function CameraView({ view, neuroEnabled }) {
   const { camera, controls, size } = useThree();
   useEffect(() => {
     const position =
@@ -162,10 +194,23 @@ function CameraView({ view }) {
         : view === "lateral"
           ? [14, 1, 0]
           : [8, 3.8, 12];
+    const target = new THREE.Vector3(
+      ...(neuroEnabled ? [0, -1.3, 1.8] : [0, 0, 0]),
+    );
+    const direction = neuroEnabled
+      ? view === "frontal"
+        ? [0, 0.6, 10]
+        : view === "lateral"
+          ? [10, 0.6, 0]
+          : [7, 2.8, 10]
+      : position;
     const fit = Math.max(1, 0.95 / (size.width / size.height));
-    camera.position.set(...position).multiplyScalar(fit);
-    camera.lookAt(0, 0, 0);
+    camera.position
+      .set(...direction)
+      .multiplyScalar(fit)
+      .add(target);
+    camera.lookAt(target);
     controls?.update();
-  }, [view, camera, controls, size.width, size.height]);
+  }, [view, camera, controls, size.width, size.height, neuroEnabled]);
   return null;
 }

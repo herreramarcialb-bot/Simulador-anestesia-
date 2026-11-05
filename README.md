@@ -23,7 +23,19 @@ Vite escucha en el puerto **5173**. En un entorno remoto utiliza el reenvío de 
 - Recorrido educativo y fichas en español, manteniendo la organización de la interfaz.
 - Aviso educativo solicitado, visible en la zona inferior, y atribución de las mallas.
 
-**Nervio alveolar inferior:** el conjunto 3.0 descargado no proporciona una malla verificable de este nervio. Se retiraron los trayectos dibujados de la primera versión. Su ficha textual continúa disponible y el interruptor de visibilidad permanece deshabilitado. No se simula un nervio con coordenadas inventadas.
+## Nervios y territorios anestésicos
+
+La pestaña **Nervios** incorpora diez ramas odontológicas de V2/V3, controles individuales, lado del paciente y fichas de origen, inervación, órganos dentarios y técnicas. Son **trayectos educativos esquemáticos**, no nervios segmentados ni coordenadas clínicas. Los tejidos blandos coloreados también son superficies aproximadas.
+
+Al abrirla aparece el módulo **Territorios anestésicos** con nueve técnicas y la función **Visualizar territorio anestésico**: azul para relación pulpar, rosa para tejidos blandos y ámbar para cobertura pulpar parcial/variable. La numeración de dientes es FDI. La visibilidad de pulpa y tejidos blandos se controla por separado. El nasopalatino muestra un territorio palatino anterior bilateral. Un bloqueo mentoniano, bucal largo, lingual o palatino no colorea dientes como si produjera anestesia pulpar.
+
+**Ver a través del hueso** oculta el cráneo, reduce la opacidad y activa la superposición. En superposición se ignora la oclusión y el clic selecciona nervios; se advierte que no indica profundidad real. Puedes volver a Anatomía para ajustar huesos y transparencia o a Jeringa para mover el instrumental.
+
+La actividad **Encuentra el nervio** plantea cinco preguntas con selección directa de las curvas 3D, retroalimentación e intentos. No se incluyen puntos de punción, dosis ni evaluación de técnica clínica.
+
+Consulta [fuentes y límites educativos](public/neuro-references.md) y [detalles de implementación](docs/neuroanatomy.md). No se obtuvo una malla nerviosa externa compatible que pudiera descargarse y verificarse; se usa la alternativa esquemática autorizada, diferenciada de las mallas DBCLS.
+
+Capturas de producción: [territorios anestésicos](docs/neuro-territorios.png) · [actividad de identificación](docs/neuro-identificacion.png).
 
 ## Procedencia y licencias
 
@@ -62,7 +74,7 @@ No se requieren claves, cuentas dentro del simulador ni variables de entorno. Lo
 
 ## Límites educativos
 
-Es un atlas de referencia masculino adulto, **no un modelo específico de paciente ni validado para planificar procedimientos**. Los terceros molares no están incluidos; no se añadieron piezas ni trayectos nerviosos supuestos. Los tejidos blandos, variaciones individuales y detalles pequeños como el conducto mandibular pueden no estar representados con precisión suficiente para anestesia clínica.
+Es un atlas de referencia masculino adulto, **no un modelo específico de paciente ni validado para planificar procedimientos**. Los terceros molares no están incluidos. Los nervios son trayectos esquemáticos aproximados y los tejidos blandos son mapas conceptuales. Las variaciones individuales y detalles pequeños como el conducto mandibular no están representados con precisión suficiente para anestesia clínica.
 
 La jeringa no está calibrada, no detecta colisiones ni simula punción, aspiración, dosis o evaluación técnica. Su posición inicial no recomienda un punto de inyección. Se requiere formación clínica supervisada.
 
