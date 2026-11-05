@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 const notice =
-  "SIMULADOR EXCLUSIVAMENTE EDUCATIVO. LOS CASOS SIN FICTICIOS Y NO SUSTITYEN LA VALORACIÓN CLÍNICA PROFESIONAL";
+  "SIMULADOR EXCLUSIVAMENTE EDUCATIVO. LOS CASOS SON FICTICIOS Y NO SUSTITUYEN LA VALORACIÓN CLÍNICA PROFESIONAL";
 
 async function ready(page) {
   const errors = [];

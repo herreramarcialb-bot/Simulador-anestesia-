@@ -579,8 +579,8 @@ function App() {
             </section>
           )}
           <div className="educational-notice">
-            SIMULADOR EXCLUSIVAMENTE EDUCATIVO. LOS CASOS SIN FICTICIOS Y NO
-            SUSTITYEN LA VALORACIÓN CLÍNICA PROFESIONAL
+            SIMULADOR EXCLUSIVAMENTE EDUCATIVO. LOS CASOS SON FICTICIOS Y NO
+            SUSTITUYEN LA VALORACIÓN CLÍNICA PROFESIONAL
           </div>
           <div className="model-credits">
             <strong>Modelo anatómico: BodyParts3D 3.0</strong> · © Database
